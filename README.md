@@ -14,7 +14,7 @@ The overall objective of this code is to analyze the performance of Jaccard simi
 - Multiprocessing
 ## Execution
 To run the script, you will need to have the dependencies installed and download the 'punkt' and 'stopwords' resource from nltk by running the following commands:
-```
+```ruby
 nltk.download('punkt')
 nltk.download('stopwords')
 ```
@@ -26,7 +26,7 @@ Jaccard similarity is a measure of similarity between two sets, in this case, th
 In this package, documents are represented as Python dictionaries where the keys are the words in the document and the values are the frequencies of those words. The Jaccard similarity between two documents is calculated by first creating sets of the words in each document, then finding the intersection and union of the sets, and finally dividing the size of the intersection by the size of the union.
 
 The theoretical worst-case running time of the Jaccard similarity measure applied to large documents represented as bags of words is O(n) where n is the number of unique words in the two sets being compared. This is because in order to calculate the intersection and union, we need to iterate through both sets and check for the presence of each word.
-```
+```ruby
 def jaccard_similarity(doc1: dict, doc2: dict) -> float:
 ```
 
@@ -37,14 +37,14 @@ In this package, documents are represented as dense vectors, where there is a di
 
 The theoretical worst-case running time of the cosine similarity measure applied to large documents represented as dense vectors is O(d) where d is the number of dimensions in the vectors. This is because in order to calculate the dot product, we need to iterate through each dimension and multiply the corresponding values.
 
-```
+```ruby
 def cosine_similarity(v1: np.ndarray, v2: np.ndarray) -> float:
 ```
 ## Sparse Cosine Similarity
 A function that computes cosine similarity directly from sparse (dictionary) representations without converting them into dense (vector) representations is also provided. This function first creates a set of the words in each document and then iterates through both sets, counting the number of common words and the number of unique words. The cosine similarity is then calculated as the number of common words divided by the number of unique words.
 
 The theoretical worst-case running time of this function is O(n^2) where n is the number of unique words in the two sets being compared. This is because we would need to iterate through both sets and check for the presence of each word, similar to the Jaccard similarity measure.
-```
+```ruby
 def sparse_cosine_similarity(doc1: dict, doc2: dict) -> float:
 ```
 ## All-pairs Similarities
@@ -52,7 +52,7 @@ A function that computes all-pairs similarities for a collection of documents is
 
 The theoretical worst-case running time for computing all-pairs similarities for a collection of documents is O(d^2) where d is the number of documents in the collection. This is because we would need to compare each document with every other document in the collection. The specific similarity measure used does not affect the running time.
 
-```
+```ruby
 def all_pairs_similarities(docs: List[dict], measure: str) -> Dict[Tuple[int, int], float]:
 ```
 
@@ -61,7 +61,7 @@ A function that implements all-pairs similarities for documents using some form 
 
 The number of parallel processes that gives optimal results for the implementation and computer should be investigated. It can be done by testing the function empirically for correctness and efficiency, and adjusting the number of processes accordingly.
 
-```
+```ruby
 def parallel_all_pairs_similarities(docs: List[dict], measure: str, num_processes: int) -> Dict[Tuple[int, int], float]:
 ```
 
