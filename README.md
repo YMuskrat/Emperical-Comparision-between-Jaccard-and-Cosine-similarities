@@ -31,7 +31,7 @@ When calculating the all-pair similarity, the choice of the algorithm affected t
 Finally, to reduce the time, the script used multiprocessing with the map-reduce technique to divide the work to multiple processes and let them work in parallel, which yielded faster results.
 
 ## Limitations
-This script is designed to work with the Reuters corpus, and any modifications may be necessary to work with other corpora or text sources. Additionally, the script assumes that the user has access to the Reuters corpus, which requires a separate download.
+This script is designed to work with the Reuters corpus, and any modifications may be necessary to work with other corpora or text sources. Additionally, the script assumes that the user has access to the Reuters corpus, which requires a separate download. If running on google colab, keep in mind that, Google Colab does not support multiprocessing by default, so if the script is run on Google Colab, the multiprocessing functionality will not work and will need to be commented out or adapted to use the built-in Colab tools for parallel processing.
 ## Additional Information
 The script includes the following functions:
 - normalize(token_list) : This function takes in a list of tokens and returns the list after converting all tokens to lowercase and removing stopwords.
